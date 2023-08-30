@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>{{title}}</h1>
+    <form action="/gettask" method="POST" name="task" id="task1">
+        <input type="text" name="t" id="TASK">
+        <button type="submit">submit</button>
+    </form>
+    <ul class="people_list">
+  {{#each Task}}
+    <li>
+        {{this.task}}
+        <form action="/updown" method="POST" name="line">
+          <input type="hidden" value={{this.in}} name="bit">
+        <button type="submit">⬆️</button></form>
+
+        <form action="/keepdown" method="POST" name="line">
+          <input type="hidden" value={{this.in}} name="bit">
+        <button type="submit">⬇️</button></form>
+        </li>
+  {{/each}}
+</ul>
+</body>
+</html>
